@@ -1,51 +1,51 @@
 {
-  "name": "framework-picker-dashboard",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.11.3",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "axios": "^0.21.1",
-    "grommet": "^2.16.2",
-    "grommet-icons": "^4.5.0",
-    "material-table": "1.61.0",
-    "numeral": "^2.0.6",
-    "polished": "^4.1.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-query": "^3.6.0",
-    "react-scripts": "4.0.1",
-    "styled-components": "^5.2.1",
-    "web-vitals": "^0.2.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "prebuild": "cd functions && yarn install",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@welldone-software/why-did-you-render": "^6.0.5"
-  }
+	"name": "framework-picker-dashboard",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@material-ui/core": "^4.11.3",
+		"@testing-library/jest-dom": "^5.11.4",
+		"@testing-library/react": "^11.1.0",
+		"@testing-library/user-event": "^12.1.10",
+		"axios": "^0.21.1",
+		"grommet": "^2.16.2",
+		"grommet-icons": "^4.5.0",
+		"material-table": "1.61.0",
+		"numeral": "^2.0.6",
+		"polished": "^4.1.0",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"react-query": "^3.6.0",
+		"react-scripts": "4.0.1",
+		"styled-components": "^5.2.1",
+		"web-vitals": "^0.2.4"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"prebuild": "cd functions && yarn install",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"prettier": "^2.2.1"
+	}
 }

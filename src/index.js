@@ -25,26 +25,26 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const theme = {
-  global: {
-    font: {
-      family: "Roboto",
-      size: "14px",
-      height: "20px",
-    },
-  },
+	global: {
+		font: {
+			family: "Roboto",
+			size: "14px",
+			height: "20px",
+		},
+	},
 };
 
 ReactDOM.render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <Grommet theme={theme} full>
-        <GlobalStyle />
-        <App />
-        <ReactQueryDevtools />
-      </Grommet>
-    </QueryClientProvider>
-  </React.StrictMode>,
-  document.getElementById("root")
+	<React.StrictMode>
+		<QueryClientProvider client={queryClient}>
+			<Grommet theme={theme} full>
+				<GlobalStyle />
+				<App />
+				<ReactQueryDevtools />
+			</Grommet>
+		</QueryClientProvider>
+	</React.StrictMode>,
+	document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
