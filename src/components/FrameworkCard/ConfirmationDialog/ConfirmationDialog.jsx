@@ -23,8 +23,17 @@ const ConfirmationDialog = ({ onClose, displayName, choice }) => {
 			onSuccess: () => {
 				onClose();
 			},
-			onError: err => {
-				console.log("ERROR: ", err.message);
+			onError: axiosErrorConfig => {
+				const { response } = axiosErrorConfig;
+				debugger;
+				if (response.status) {
+					setFormError({ email: "You already voted, you can only vote once!" });
+				} else {
+					setFormError({
+						email:
+							"Sorry, there was an issue on the server.  Please try submitting again.",
+					});
+				}
 			},
 		},
 	});

@@ -35,7 +35,7 @@ exports.handler = async event => {
 		if (err.message === "ALREADY EXISTS") {
 			return {
 				statusCode: 422,
-				body: JSON.stringify(err),
+				body: JSON.stringify({ error: err, message: err.message }),
 			};
 		} else {
 			return { statusCode: 500, body: JSON.stringify(err) };
