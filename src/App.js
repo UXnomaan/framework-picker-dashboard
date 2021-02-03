@@ -12,7 +12,7 @@ import ErrorBoundary from "./components/errors/ErrorBoundary";
 import { frameworks } from "./data/frameworks";
 
 function App() {
-	const [isTableShowing, setIsTableShowing] = useState(false);
+	const [showTable, setShowTable] = useState(false);
 
 	return (
 		<Box
@@ -32,12 +32,12 @@ function App() {
 				primary
 				color="accent-1"
 				label="View Details"
-				onClick={() => setIsTableShowing(true)}
+				onClick={() => setShowTable(true)}
 			/>
-			{isTableShowing ? (
+			{showTable ? (
 				<Layer
-					onEsc={() => setIsTableShowing(false)}
-					onClickOutside={() => setIsTableShowing(false)}
+					onEsc={() => setShowTable(false)}
+					onClickOutside={() => setShowTable(false)}
 				>
 					<ErrorBoundary>
 						<FrameworkDetails />

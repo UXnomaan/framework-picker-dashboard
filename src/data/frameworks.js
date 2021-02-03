@@ -20,7 +20,7 @@ export const frameworks = [
 	},
 	{
 		name: "ember.js",
-		display: "EmberJS",
+		display: "Ember",
 		imgSrc: "https://emberjs.com/images/brand/ember_E-Icon-4c-Square.png",
 		repoUrl: "/repos/emberjs/ember.js",
 	},

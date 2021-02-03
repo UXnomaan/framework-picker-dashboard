@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Box } from "grommet";
 
 const GithubMetric = ({ children, title, ...rest }) => {
@@ -16,6 +17,11 @@ const GithubMetric = ({ children, title, ...rest }) => {
 			{children}
 		</Box>
 	);
+};
+
+GithubMetric.propTypes = {
+	children: PropTypes.node,
+	title: PropTypes.string,
 };
 
 export default GithubMetric;
