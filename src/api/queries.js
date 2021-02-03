@@ -1,6 +1,6 @@
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 
-import { githubAPI } from "./api";
+import { githubAPI, voteAPI } from "./api";
 
 const DEFAULT_REFETCH_INTERVAL = 1000 * 60;
 
@@ -15,4 +15,15 @@ export const useRepo = ({ name, repoUrl }) => {
 			refetchInterval: DEFAULT_REFETCH_INTERVAL,
 		}
 	);
+};
+
+export const useCastVote = () => {
+	return useMutation(vote => voteAPI.post("/cast-vote", vote));
+};
+
+export const useVotes = () => {
+	return useQuery("votes", async () => {
+		const { data } = await voteAPI.get("/get-votes");
+		return data;
+	});
 };
