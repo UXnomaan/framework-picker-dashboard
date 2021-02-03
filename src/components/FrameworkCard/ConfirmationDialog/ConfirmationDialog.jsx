@@ -25,7 +25,6 @@ const ConfirmationDialog = ({ onClose, displayName, choice }) => {
 			},
 			onError: axiosErrorConfig => {
 				const { response } = axiosErrorConfig;
-				debugger;
 				if (response.status) {
 					setFormError({ email: "You already voted, you can only vote once!" });
 				} else {
@@ -56,7 +55,7 @@ const ConfirmationDialog = ({ onClose, displayName, choice }) => {
 						castVote(value);
 					}}
 				>
-					<FormField name="email" htmlFor="email" label="Email Address">
+					<FormField name="email" htmlFor="email">
 						<TextInput
 							id="email"
 							type="email"
