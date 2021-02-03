@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from "react";
-import * as numeral from "numeral";
+import PropTypes from "prop-types";
+import numeral from "numeral";
 
 // Grommet
-import { Card, CardBody, CardHeader, Heading, Box, Image } from "grommet";
+import {
+	Card,
+	CardBody,
+	CardHeader,
+	CardFooter,
+	Heading,
+	Box,
+	Image,
+	Button,
+} from "grommet";
 import { Star, View, Archive } from "grommet-icons";
 
 // Components
@@ -10,9 +20,11 @@ import GithubMetric from "./GithubMetric/GithubMetric";
 
 // Queries
 import { useRepo } from "../../api/queries";
+import ConfirmationDialog from "./ConfirmationDialog/ConfirmationDialog";
 
 const FrameworkCard = ({ display, name, imgSrc, repoUrl }) => {
 	const { data } = useRepo({ name, repoUrl });
+	const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
 	const [cardData, setCardData] = useState({
 		subscribers_count: 0,
 		stargazers_count: 0,
@@ -58,8 +70,30 @@ const FrameworkCard = ({ display, name, imgSrc, repoUrl }) => {
 					<span>{numeral(cardData.open_issues_count).format("Oa")}</span>
 				</GithubMetric>
 			</CardBody>
+			<CardFooter pad="small" justify="end" background="light-2">
+				<Button
+					primary
+					hoverIndicator
+					label="Vote"
+					onClick={() => setShowConfirmationDialog(true)}
+				/>
+			</CardFooter>
+			{showConfirmationDialog ? (
+				<ConfirmationDialog
+					displayName={display}
+					onConfirm={() => console.log("Voting Not Implemented yet")}
+					onClose={() => setShowConfirmationDialog(false)}
+				/>
+			) : null}
 		</Card>
 	);
+};
+
+FrameworkCard.propTypes = {
+	display: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	imgSrc: PropTypes.string.isRequired,
+	repoUrl: PropTypes.string.isRequired,
 };
 
 const memoizedFrameworkCard = React.memo(FrameworkCard);
