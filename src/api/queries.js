@@ -24,7 +24,7 @@ export const useCastVote = ({ overrides = {} } = {}) => {
 	});
 };
 
-export const useVotes = ({ overrides = {} }) => {
+export const useVotes = ({ overrides = {} } = {}) => {
 	return useQuery(
 		"votes",
 		async () => {

@@ -70,7 +70,7 @@ const FrameworkCard = ({ display, name, imgSrc, repoUrl }) => {
 					<span>{numeral(cardData.open_issues_count).format("Oa")}</span>
 				</GithubMetric>
 			</CardBody>
-			<CardFooter pad="small" justify="end" background="light-2">
+			<CardFooter pad="small" justify="end" background="light-4">
 				<Button
 					primary
 					hoverIndicator
