@@ -17,7 +17,7 @@ function App() {
 	return (
 		<Box
 			fill
-			background="brand"
+			background="accent-3"
 			direction="column"
 			justify="center"
 			align="center"
@@ -30,7 +30,7 @@ function App() {
 			</Box>
 			<Button
 				primary
-				color="accent-1"
+				color="accent-2"
 				label="View Details"
 				onClick={() => setShowTable(true)}
 			/>

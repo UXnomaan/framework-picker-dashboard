@@ -4,7 +4,7 @@ import { githubAPI, voteAPI } from "./api";
 
 const DEFAULT_REFETCH_INTERVAL = 1000 * 60;
 
-export const useRepo = ({ name, repoUrl }) => {
+export const useRepo = ({ name, repoUrl, overrides = {} }) => {
 	return useQuery(
 		["github", name],
 		async () => {
@@ -13,17 +13,26 @@ export const useRepo = ({ name, repoUrl }) => {
 		},
 		{
 			refetchInterval: DEFAULT_REFETCH_INTERVAL,
+			...overrides,
 		}
 	);
 };
 
-export const useCastVote = () => {
-	return useMutation(vote => voteAPI.post("/cast-vote", vote));
+export const useCastVote = ({ overrides = {} } = {}) => {
+	return useMutation(vote => voteAPI.post("/cast-vote", vote), {
+		...overrides,
+	});
 };
 
-export const useVotes = () => {
-	return useQuery("votes", async () => {
-		const { data } = await voteAPI.get("/get-votes");
-		return data;
-	});
+export const useVotes = ({ overrides = {} }) => {
+	return useQuery(
+		"votes",
+		async () => {
+			const { data } = await voteAPI.get("/get-votes");
+			return data;
+		},
+		{
+			...overrides,
+		}
+	);
 };

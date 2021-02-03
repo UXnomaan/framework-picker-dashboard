@@ -81,7 +81,7 @@ const FrameworkCard = ({ display, name, imgSrc, repoUrl }) => {
 			{showConfirmationDialog ? (
 				<ConfirmationDialog
 					displayName={display}
-					onConfirm={() => console.log("Voting Not Implemented yet")}
+					choice={name}
 					onClose={() => setShowConfirmationDialog(false)}
 				/>
 			) : null}
