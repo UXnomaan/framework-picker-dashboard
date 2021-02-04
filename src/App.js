@@ -31,7 +31,7 @@ function App() {
 			<Button
 				primary
 				color="accent-1"
-				label="View Details"
+				label="View Framework Details"
 				onClick={() => setShowTable(true)}
 			/>
 			{showTable ? (
