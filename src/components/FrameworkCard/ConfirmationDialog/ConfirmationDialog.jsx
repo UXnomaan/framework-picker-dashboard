@@ -48,6 +48,7 @@ const ConfirmationDialog = ({ onClose, displayName, choice }) => {
 				<Heading level="4">{displayText}</Heading>
 				{isLoading ? <Spinner /> : null}
 				<Form
+					data-netlify="true"
 					value={formValue}
 					errors={formError}
 					onChange={nextValue => setFormValue(nextValue)}
