@@ -17,8 +17,6 @@ exports.handler = async () => {
 		);
 		const processedResults = results.data.reduce(
 			(finalResults, currentItem) => {
-				// Need to use hasOwnProperty here as just checking existence
-				// always returns false when the value is 0
 				if (finalResults[currentItem]) {
 					finalResults[currentItem] = finalResults[currentItem] + 1;
 				} else {

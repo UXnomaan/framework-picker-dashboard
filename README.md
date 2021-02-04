@@ -1,6 +1,6 @@
 # LaunchPad Lab Code Challenge
 
-## Technologies
+## Technologies 💻
 
 ### UI Libraries
 
@@ -23,11 +23,11 @@
 
 ---
 
-## Walkthrough
+## Walkthrough 🦮
 
 ### Hosting/Deployment
 
-The first item that I tackled was bootstrapping the application, and deploying it.  I prefer to deploy an application to my hosting provider as soon as it is bootstrapped (in this case Create-React-App.) Doing this ensures that any issues that you have with your deployment environment are minimal on day one, and can be dealt with in an incremental manner.
+The first item that I tackled was bootstrapping the application, and deploying it to Netlify.  I prefer to deploy an application to my hosting provider as soon as I have set it up (in this case Create-React-App.) Doing this ensures that any issues that you have with your deployment environment are minimal on day one, and can be dealt with in an incremental manner.
 
 ---
 
@@ -39,7 +39,7 @@ Since this challenge was not about design, I kept the color branding very simple
 
 ### UI
 
-I went with a very simple UI that displayed a snapshot of the data on the homepage, but allows the user to drill into the data a bit with a table that allows for sorting and searching of the data.
+I went with a very simple UI that displayed a snapshot of the data on the homepage, but allows the user to drill into the data with a table that allows for sorting and searching of the data.
 
 #### Components
 
@@ -62,11 +62,11 @@ This way if any additional frameworks needed to be added to the voting system, a
 
 #### Client API
 
-For the client side API, I used Axios paired with React Query.  I decided on axios, as it allows me to generate several instances of the API, where each instance can have different configurations.  I generated two instances, one for the github endpoints, and another for my serverless functions.  Due to the requirement of not wanting to refresh the application to view the statistics, I decided on React Query as an API wrapper, as you can set a refetch interval within the query configurations.  I set the interval of the application to refresh the data every 60 seconds, which keeps the data fresh and doesn't trip the rate limitations on Github.  In addition this gave me cached data that I could access when the user wanted to view the details of the framework in a table.
+For the client side API, I used Axios paired with React Query.  I decided on Axios, as it is a very powerful and flexible API client. It allowed me to generate several instances of the API, where each instance can have different configurations.  I generated two instances, one for the Github endpoints, and another for my serverless functions.  Due to the requirement of not wanting to refresh the application to view fresh data, I decided on React Query as an API wrapper, as you can set a refetch interval within the query configurations.  I set the interval of the application to refresh the data every 60 seconds, which keeps the data fresh.  In addition this gave me a cache of data that I could access when the user wanted to view the details of the framework in the table.
 
 #### Table
 
-The prompt asked for the ability to be able to sort and filter the data.  Recently coming from an analytics background, I decided a table would work best for this.  After doing a bit of searching I found Material Table had a simple enough implementation that would work for my purposes.  I added this in with some data formatting to allow the user to sort based on each metric.  In this component I was able to leverage the React Query cache, and instead of make another potential request to the API, I instead pulled out the most recent cached data and display it in the data.  Since the queries on the front page are run every 60 seconds, the data for the table would be no older than 60 seconds.
+The prompt asked for the ability to be able to sort and filter the data.  Recently coming from an analytics background, I decided a table would work best for this.  After doing a bit of searching I found Material Table had a simple enough implementation that would work for my purposes.  I added this in with some data formatting to allow the user to sort based on each metric.  In this component I was able to leverage the React Query cache, and instead of make another potential request to the API, I instead pulled out the most recent cached data and display it in the table.  Since the queries on the front page are run every 60 seconds, the data for the table would be fresh enough to analyze.
 
 ---
 
@@ -80,13 +80,17 @@ Rather than spin up a server on Digital Ocean, and install SQLite manually I dec
 
 ---
 
-## Potential App Improvements
+## Potential App Improvements ⬆️
 
+- Source better images for icons, and add a height/width key to the framework configuration
+- Replace Material Table as it is not being worked on anymore
+- Roll my own function for Numeral.js formatting on home page.  This library is unecessary for what it provides to this app
 - Functional Tests in Cypress
 - Unit Tests in Jest
 - A mobile version that uses a Carousel for the framework cards, rather than a masonry layout
 - Additional desktop styles to accomodate proper wrapping if/when additional frameworks are added to the voting list
 - Data visualizations comparing Open/Closed issues over time.
+- Add additional props to GithubMetric component so it can be looped through
 
 ---
 
