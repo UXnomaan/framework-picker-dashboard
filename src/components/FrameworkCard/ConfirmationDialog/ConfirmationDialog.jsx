@@ -12,13 +12,14 @@ import {
 
 // Queries
 import { useCastVote } from "../../../api/queries";
+import Spinner from "../../Spinner/Spinner";
 
 const ConfirmationDialog = ({ onClose, displayName, choice }) => {
 	const [formValue, setFormValue] = useState({ email: "" });
 	const [formError, setFormError] = useState({
 		email: "",
 	});
-	const { mutate: castVote } = useCastVote({
+	const { mutate: castVote, isLoading } = useCastVote({
 		overrides: {
 			onSuccess: () => {
 				onClose();
@@ -45,6 +46,7 @@ const ConfirmationDialog = ({ onClose, displayName, choice }) => {
 		<Layer onEsc={onClose}>
 			<Box margin="medium">
 				<Heading level="4">{displayText}</Heading>
+				{isLoading ? <Spinner /> : null}
 				<Form
 					value={formValue}
 					errors={formError}
